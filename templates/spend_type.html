@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2> Внести тип траты </h2>
+    <form action="{{ url_for('spend_type') }}" method="post">
+         <p>
+            {{form.name.label}} <br>
+            {{form.name(size=60)}}
+        </p>
+        <p>{{form.submit}}</p>
+    </form>
+
+    <h1 class="title">{% block title %} Типы трат {% endblock %}</h1>
+    <div class="content">
+        {% for spend_type in spend_types %}
+            <i>{{ spend_type.id }}</i><b>&nbsp{{ spend_type.name }}</b><br>
+        </div>
+        {% endfor %}
+
+</body>
+</html>

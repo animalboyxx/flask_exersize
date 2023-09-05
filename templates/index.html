@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ввод траты</h2>
+    <form action="{{ url_for('index') }}" method="post">
+        <p>
+            {{form.summ.label}} <br>
+            {{form.summ(size=30)}}
+        </p>
+        <p>
+            {{form.spend_type.label}} <br>
+            {{form.spend_type}}
+        </p>
+        <p>{{form.submit}}</p>
+            <h1 class="title">{% block title %} Траты {% endblock %}</h1>
+    <div class="content">
+
+        <div class="somediv">
+        <a href="{{ url_for('spend_type') }}">туда</a><br><br>
+
+        {% for spending in spendings %}
+            <i>{{ spending.id }}</i><b>&nbsp{{ spending.summ }}</b><i>&nbsp{{ spending.date }}</i><b>&nbsp{{ spending.spend_type }}</b>&nbsp<br>
+    </div>
+        {% endfor %}
+    </form>
+</body>
+</html>
